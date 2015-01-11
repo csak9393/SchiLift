@@ -1,0 +1,17 @@
+@(lifts: Set[Lift])
+
+@main("Lift Overview"){
+  <h1>All Lifts</h1>
+  <dl>
+    @for(lift <- lifts) {
+      <dt>
+        <a href="@routes.Lifts.show(lift.id)">
+          @lift.id - @lift.name
+        </a>
+      </dt>
+      <dd>@lift.descr</dd>
+    }
+  </dl>
+  <a href="@routes.Lifts.showBlank()" class="btn">
+    <i class="icon-plus"></i> New Lift</a>
+  }
